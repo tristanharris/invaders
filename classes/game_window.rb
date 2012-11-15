@@ -4,7 +4,7 @@ class GameWindow < Gosu::Window
     super
     self.caption = 'Space Invaders'
 
-    @image = Gosu::Image.new(self, 'media/ship.png')
+    @player = Player.new(self)
   end
 
   def update
@@ -12,7 +12,7 @@ class GameWindow < Gosu::Window
   end
 
   def draw
-    @image.draw(100,100,1)
+    @player.draw
   end
 
 end
