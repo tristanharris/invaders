@@ -5,4 +5,8 @@ class GameWindow < Gosu::Window
     self.caption = 'Space Invaders'
   end
 
+  def update
+    close if button_down? Gosu::Button::KbEscape
+  end
+
 end
