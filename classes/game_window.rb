@@ -9,6 +9,9 @@ class GameWindow < Gosu::Window
 
   def update
     close if button_down? Gosu::Button::KbEscape
+
+    @player.move(:left) if button_down? Gosu::Button::KbLeft
+    @player.move(:right) if button_down? Gosu::Button::KbRight
   end
 
   def draw
