@@ -1,15 +1,10 @@
-class Player
+class Player < Element
 
   def initialize(window)
-    @window = window
-    @image = Gosu::Image.new(window, 'media/ship.png')
-    @x, @y = window.width / 2, window.height - @image.height
+    super(window, window.width / 2, window.height, 'media/ship.png')
+    @y -= @image.height
     @reload_duration = 0.05
     @last_shot = Time.at(0)
-  end
-
-  def draw
-    @image.draw(@x, @y,1)
   end
 
   def move(direction)
@@ -25,10 +20,6 @@ class Player
 
   def reloading?
     Time.now - @last_shot < @reload_duration
-  end
-
-  def center
-    [@x + @image.width / 2, @y - @image.height / 2]
   end
 
 end

@@ -1,13 +1,7 @@
-class Bullet
+class Bullet < Element
 
   def initialize(window, x, y)
-    @window = window
-    @image = Gosu::Image.new(window, 'media/normal_bullet.png')
-    @x, @y = x, y
-  end
-
-  def draw
-    @image.draw(@x, @y,1)
+    super(window, x, y, 'media/normal_bullet.png')
   end
 
   def update
