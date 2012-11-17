@@ -15,4 +15,12 @@ class Player
     @x = [[0, @x].max, @window.width - @image.width].min
   end
 
+  def shoot
+    @window << Bullet.new(@window, *center)
+  end
+
+  def center
+    [@x + @image.width / 2, @y - @image.height / 2]
+  end
+
 end
