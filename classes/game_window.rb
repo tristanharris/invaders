@@ -15,7 +15,7 @@ class GameWindow < Gosu::Window
     @player.move(:right) if button_down? Gosu::Button::KbRight
     @player.shoot if button_down? Gosu::Button::KbSpace
 
-    @elements.each {|el| el.update}
+    @elements.reject! {|el| el.update; el.dead?}
   end
 
   def draw

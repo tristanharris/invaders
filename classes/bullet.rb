@@ -14,4 +14,8 @@ class Bullet
     @y -= 10
   end
 
+  def dead?
+    @y < 0
+  end
+
 end
