@@ -4,6 +4,8 @@ class Player
     @window = window
     @image = Gosu::Image.new(window, 'media/ship.png')
     @x, @y = window.width / 2, window.height - @image.height
+    @reload_duration = 0.05
+    @last_shot = Time.at(0)
   end
 
   def draw
@@ -16,7 +18,13 @@ class Player
   end
 
   def shoot
+    return if reloading?
     @window << Bullet.new(@window, *center)
+    @last_shot = Time.now
+  end
+
+  def reloading?
+    Time.now - @last_shot < @reload_duration
   end
 
   def center
