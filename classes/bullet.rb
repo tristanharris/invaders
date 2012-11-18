@@ -13,7 +13,7 @@ class Bullet < Element
   end
 
   def dead?
-    super || @y < 0
+    super || y < 0
   end
 
 end

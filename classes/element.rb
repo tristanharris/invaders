@@ -18,7 +18,7 @@ class Element
   end
 
   def draw
-    @image.draw(@x, @y, 1)
+    @image.draw(x, y, 1)
   end
 
   def update
@@ -29,8 +29,8 @@ class Element
   end
 
   def touching?(other)
-    if @x >= other.x and @x <= other.x + other.width then
-      if @y >= other.y and @y <= other.y + other.height then
+    if x >= other.x and x <= other.x + other.width then
+      if y >= other.y and y <= other.y + other.height then
         true
       end
     else
@@ -43,7 +43,7 @@ class Element
 
   private
   def center
-    [@x + @image.width / 2, @y - @image.height / 2]
+    [x + @image.width / 2, y - @image.height / 2]
   end
 
   def die!

@@ -7,8 +7,8 @@ class Enemy < Element
 
   def update
     @x += @move
-    @move = @move.abs if @x + @move < bound(:x, :min)
-    @move = -@move.abs if @x + @move > bound(:x, :max)
+    @move = @move.abs if x + @move < bound(:x, :min)
+    @move = -@move.abs if x + @move > bound(:x, :max)
   end
 
   def hit_by(other)
