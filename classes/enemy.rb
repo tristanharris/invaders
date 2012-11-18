@@ -11,8 +11,8 @@ class Enemy < Element
     @move = -@move.abs if @x + @move > @window.width - @image.width
   end
 
-  def dead?
-    false
+  def hit_by(other)
+    die!
   end
 
 end

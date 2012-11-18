@@ -1,9 +1,20 @@
 class Element
 
+  attr_reader :x, :y
+
   def initialize(window, x, y, image_file)
     @window = window
     @image = Gosu::Image.new(window, image_file)
     @x, @y = x, y
+    @dead = false
+  end
+
+  def width
+    @image.width
+  end
+
+  def height
+    @image.height
   end
 
   def draw
@@ -14,12 +25,29 @@ class Element
   end
 
   def dead?
-    false
+    @dead
+  end
+
+  def touching?(other)
+    if @x >= other.x and @x <= other.x + other.width then
+      if @y >= other.y and @y <= other.y + other.height then
+        true
+      end
+    else
+      false
+    end
+  end
+
+  def hit_by(other)
   end
 
   private
   def center
     [@x + @image.width / 2, @y - @image.height / 2]
+  end
+
+  def die!
+    @dead = true
   end
 
 end

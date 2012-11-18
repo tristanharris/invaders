@@ -6,10 +6,14 @@ class Bullet < Element
 
   def update
     @y -= 10
+    @window.collisions(self) do |el|
+      el.hit_by(self)
+      die!
+    end
   end
 
   def dead?
-    @y < 0
+    super || @y < 0
   end
 
 end

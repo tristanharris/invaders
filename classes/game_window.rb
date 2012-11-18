@@ -28,4 +28,10 @@ class GameWindow < Gosu::Window
     @elements << element
   end
 
+  def collisions(element)
+    @elements.each do |el|
+      yield el if el != element && element.touching?(el)
+    end
+  end
+
 end
