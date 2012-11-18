@@ -7,8 +7,8 @@ class Enemy < Element
 
   def update
     @x += @move
-    @move = @move.abs if @x + @move < 0
-    @move = -@move.abs if @x + @move > @window.width - @image.width
+    @move = @move.abs if @x + @move < bound(:x, :min)
+    @move = -@move.abs if @x + @move > bound(:x, :max)
   end
 
   def hit_by(other)

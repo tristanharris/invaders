@@ -50,4 +50,19 @@ class Element
     @dead = true
   end
 
+  def bound(direction, limit=:max)
+    case limit
+      when :max
+        case direction
+          when :x
+            size = :width
+          when :y
+            size = :height
+        end
+        return @window.send(size) - @image.send(size)
+      when :min
+        return 0
+    end
+  end
+
 end

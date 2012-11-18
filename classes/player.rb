@@ -9,7 +9,7 @@ class Player < Element
 
   def move(direction)
     @x += (direction == :left ? -1 : 1) * 10
-    @x = [[0, @x].max, @window.width - @image.width].min
+    @x = [[bound(:x, :min), @x].max, bound(:x, :max)].min
   end
 
   def shoot
