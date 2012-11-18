@@ -5,6 +5,7 @@ require 'game_window'
 require 'element'
 require 'player'
 require 'bullet'
+require 'enemy'
 
 window = GameWindow.new
 

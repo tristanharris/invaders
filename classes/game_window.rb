@@ -6,6 +6,7 @@ class GameWindow < Gosu::Window
 
     @player = Player.new(self)
     @elements = []
+    self << Enemy.new(self, 100,100)
   end
 
   def update
